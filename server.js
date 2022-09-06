@@ -34,26 +34,45 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 
 //Index
 app.get('/products', (req, res) => {
-    res.send("home page")
-});
+    products.find({}, (error, allProducts) => {
+        res.render('index.ejs', {
+            products: allProducts,
+        })
+    })
+})
 //New
 app.get('/products/new', (req, res) => {
-    res.send("created new")
+    res.render('new.ejs')
 });
 //D
 //U
 //Create
 app.post('/products', (req, res) => {
-    res.send('received')
-    res.redirect('/products')
+    const newItem = {
+        name: req.body.name,
+        description: req.body.description,
+        img: req.body.img,
+        price: req.body.price,
+        qty: req.body.qty,
+    }
+    products.create(newItem, (error, createdItem) =>{
+        res.redirect('/products')
+    })
 });
 //Edit
 app.get('/products/:id/edit', (req, res) => {
-    res.send('edit page')
-});
+    res.render('edit.ejs', {
+        productId: req.params.id
+    })
+    });
 //Show
 app.get('/products/:id', (req, res) => {
-    res.send('show page')
+    products.findById(req.params.id, (err, foundItem) => {
+        res.render('show.ejs', {
+            product: foundItem,
+            productId: req.params.id,
+        })
+    })
 });
 
 //==================
