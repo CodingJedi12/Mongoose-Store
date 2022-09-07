@@ -35,34 +35,34 @@ db.on('disconnected', () => console.log('mongo disconnected'))
 //==================
 
 //Seed
-app.get('products/seed', (req, res) => {
-    products.create(
-    [
-        {
-          name: 'Beans',
-          description: 'A small pile of beans. Buy more beans for a big pile of beans.',
-          img: 'https://imgur.com/LEHS8h3.png',
-          price: 5,
-          qty: 99
-        }, {
-          name: 'Bones',
-          description: "It's just a bag of bones.",
-          img: 'https://imgur.com/dalOqwk.png',
-          price: 25,
-          qty: 0
-        }, {
-          name: 'Bins',
-          description: 'A stack of colorful bins for your beans and bones.',
-          img: 'https://imgur.com/ptWDPO1.png',
-          price: 7000,
-          qty: 1
-        },
-      ],
-      (error, data) => {
-        res.redirect('/products')
-      }
-    );
-});
+// app.get('products/seed', (req, res) => {
+//     products.create(
+//     [
+//         {
+//           name: 'Beans',
+//           description: 'A small pile of beans. Buy more beans for a big pile of beans.',
+//           img: 'https://imgur.com/LEHS8h3.png',
+//           price: 5,
+//           qty: 99
+//         }, {
+//           name: 'Bones',
+//           description: "It's just a bag of bones.",
+//           img: 'https://imgur.com/dalOqwk.png',
+//           price: 25,
+//           qty: 0
+//         }, {
+//           name: 'Bins',
+//           description: 'A stack of colorful bins for your beans and bones.',
+//           img: 'https://imgur.com/ptWDPO1.png',
+//           price: 7000,
+//           qty: 1
+//         },
+//       ],
+//       (error, data) => {
+//         res.redirect('/products')
+//       }
+//     );
+// });
 
 //Index
 app.get('/products', (req, res) => {
@@ -78,19 +78,19 @@ app.get('/products/new', (req, res) => {
 });
 //D
 //Update
-// app.put('/products/:id', (req, res) => {
-//     const newItem = {
-//         name: req.body.name,
-//         description: req.body.description,
-//         img: req.body.img,
-//         price: req.body.price,
-//         qty: req.body.qty,
-//     }
-//     products.findByIdAndUpdate(newItem, (error, updatedItem) => {
-//         updatedItem[req.params.id] = newItem;
-//         res.redirect('/products');
-//     })
-// });
+app.put('/products/:id', (req, res) => {
+    const newItem = {
+        name: req.body.name,
+        description: req.body.description,
+        img: req.body.img,
+        price: req.body.price,
+        qty: req.body.qty,
+    }
+    products.findByIdAndUpdate(req.params.id, newItem, (error, updatedItem) => {
+        updatedItem[req.params.id] = newItem;
+        res.redirect('/products');
+    })
+});
 
 //Create
 app.post('/products', (req, res) => {
@@ -107,8 +107,11 @@ app.post('/products', (req, res) => {
 });
 //Edit
 app.get('/products/:id/edit', (req, res) => {
-    res.render('edit.ejs', {
-        productId: req.params.id
+    products.findById(req.params.id, (err, foundItem) => {
+        res.render('edit.ejs', {
+            product: foundItem,
+            productId: req.params.id
+        })
     })
 });
 //Show
