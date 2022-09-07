@@ -16,8 +16,8 @@
         <% products.forEach(product=> { %>
                 <h2><%= product.name %> </h2>
                 <a href="/products/<%= product._id %>"><img src="<%= product.img%>"></a>
-                <p><%= product.price%></p>
-                <p><%= product.qty%></p>
+                <p>Price: <%= product.price%></p>
+                <p>Quantity: <%= product.qty%></p>
         <% }) %> 
     </ul>
 </body>
