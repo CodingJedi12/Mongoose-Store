@@ -16,6 +16,8 @@
 		<p><%= product.description %></p><br />
         <p><%= product.price%></p><br />
         <p><%= product.qty%></p><br />
-        <button><a href="/products/<%=productId%>/edit" value="Edit"></a></button>
+        <form action="/products/<%=productId%>/edit">
+        <input type='submit' value="Edit"/>
+        </form>
 	</body>
 </html>

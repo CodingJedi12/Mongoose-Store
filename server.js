@@ -80,3 +80,7 @@ app.get('/products/:id', (req, res) => {
 //==================
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`we are live at ${PORT}`))
+
+//fix edit button
+//create update controller
+//add buy button
