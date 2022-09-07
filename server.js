@@ -14,9 +14,11 @@ require('dotenv').config();
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
+
 //==================
 //DATABASE CONNECTION
 //==================
+
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
