@@ -18,7 +18,7 @@
                 <a href="/products/<%= product._id %>"><img src="<%= product.img%>"></a>
                 <p>Price: <%= product.price%></p>
                 <p>Quantity: <%= product.qty%></p>
-                <form>
+                <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
                     <input type="submit" value="Delete">
                 </form>
             </li>
