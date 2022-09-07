@@ -17,6 +17,7 @@
         <p>Price: <%= product.price%></p><br />
         <p>Quantity: <%= product.qty%></p><br />
 		<% if (product.qty > 0) { %>
+			<%product.qty -= 1; %>
 		<form>
 			<input type="submit" value="Buy">
 		</form>

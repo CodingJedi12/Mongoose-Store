@@ -116,6 +116,7 @@ app.post('/products', (req, res) => {
         res.redirect('/products')
     })
 });
+
 //Edit
 app.get('/products/:id/edit', (req, res) => {
     products.findById(req.params.id, (err, foundItem) => {
@@ -125,6 +126,7 @@ app.get('/products/:id/edit', (req, res) => {
         })
     })
 });
+
 //Show
 app.get('/products/:id', (req, res) => {
     products.findById(req.params.id, (err, foundItem) => {
