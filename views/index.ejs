@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <link rel="stylesheet" href="/style.css">
     <meta charset="utf-8" />
-    <title></title>
+    <title>Product Index</title>
 </head>
 
 <body>
@@ -12,7 +12,6 @@
     </nav>
     <h1>Products Index</h1>
     <ul>
-        <%console.log(products) %>
         <% products.forEach(product=> { %>
                 <h2><%= product.name %> </h2>
                 <a href="/products/<%= product._id %>"><img src="<%= product.img%>"></a>

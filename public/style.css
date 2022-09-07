@@ -1,7 +1,4 @@
 img {
-    max-width: fit-content;
-    max-height: fit-content;
-}
-body {
-    background-color: black;
+    max-width: 400px;
+    max-height: 400px;
 }
