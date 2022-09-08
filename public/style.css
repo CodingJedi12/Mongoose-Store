@@ -1,6 +1,9 @@
 img {
-    max-width: 400px;
-    max-height: 400px;
+    width:  150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid white;
+    border-radius: 6px;
 }
 p {
     margin-top: 10px;
@@ -11,10 +14,96 @@ form {
     margin-right: 10px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
 body {
+    font-family: 'Rampart One', cursive;
     text-align: center;
+    color: black;
+    background-image: url("https://img.freepik.com/free-vector/background-seamless-pattern-vector-with-cute-memphis_53876-105506.jpg?size=626&ext=jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
+
+.products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ind_prod {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    border: 1px solid gainsboro;
+    padding: 10px;
+    background-color: rgba(22, 170, 170, .7);
+    border-radius: 6px;
+}
+
+.product_name {
+    border-bottom: 2px solid white;
+}
+
+.header {
+    font-size: 28px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(22, 170, 170, .5);
+    border: 5px solid white;
+    border-radius: 6px;
+}
+
+input {
+    margin: 10px 0;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 2px 2px gainsboro;
+  }
+
+.new:hover {
+    cursor: pointer;
+    background-color: rgb(255, 168, 102);
+    box-shadow: 2px 2px black;
+}
+
+.delete:hover {
+    cursor: pointer;
+    background-color: rgb(22, 170, 170);
+    box-shadow: 2px 2px black;
+}
+.page_head {
+    color: rgb(22, 170, 170);
+}
+.new_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    margin: auto;
+    border: 1px solid gainsboro;
+    padding: 10px;
+    background-color: rgba(255, 168, 102, .7);
+    border-radius: 6px;
+}
+input:focus {
+    /* the outline property targets the default blue border that appears when selecting it */
+    /* setting it to zero removes it */
+    outline: 0;
+    border: 1px solid rgb(22, 170, 170);
+  }
+  .show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    margin: auto;
+    border: 1px solid gainsboro;
+    padding: 10px;
+    background-color: rgba(255, 168, 102, .7);
+    color:rgb(22, 170, 170);
+    border-radius: 6px;
+  }
