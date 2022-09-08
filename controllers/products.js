@@ -33,6 +33,16 @@ productsRouter.get('/seed', (req, res) => {
     );
 });
 
+//Buy
+productsRouter.put('/:id/buy', (req, res) => {
+        products.findById(req.params.id, (error, foundItem) => {
+            console.log(foundItem)
+            foundItem.qty -= 1;
+            foundItem.save();
+            res.redirect(`/products/${req.params.id}`);
+        })
+});
+
 //Index
 productsRouter.get('/', (req, res) => {
     products.find({}, (error, allProducts) => {
@@ -66,7 +76,7 @@ productsRouter.put('/:id', (req, res) => {
     }
     products.findByIdAndUpdate(req.params.id, newItem, (error, foundItem) => {
         foundItem[req.params.id] = newItem;
-        res.redirect('/products');
+        res.redirect(`/products/${req.params.id}`)
     })
 });
 

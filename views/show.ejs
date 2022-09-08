@@ -21,9 +21,12 @@
 		<p><%= product.description %></p>
         <p>Price: $<%= product.price%></p>
         <p>Quantity: <%= product.qty%></p>
+		<% if (product.qty <= 0) { %>
+			<p>Out of Stock! Check back later...</p>
+		<% } %>
 	</div>
 		<% if (product.qty > 0) { %>		
-		<form action="<%product.qty -= 1; %>">
+			<form action="/products/<%=productId%>/buy?_method=PUT" method="POST">
 			<input class="delete"type="submit" value="Buy">
 		</form>
 		<% } %>
